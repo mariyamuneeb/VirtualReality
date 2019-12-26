@@ -15,6 +15,9 @@ def to_fixed_point(input_tensor,ibits,fbits):
     return input_tensor_i + input_tensor_f
 
 @tf.RegisterGradient('fixed_point_grad')
+#https://uoguelph-mlrg.github.io/tensorflow_gradients/
+#https://stackoverflow.com/questions/43256517/how-to-register-a-custom-gradient-for-a-operation-composed-of-tf-operations
+# https://github.com/keras-team/keras/issues/8526
 def _qunatize_grad(ops,grad):
     return grad
 
