@@ -1,5 +1,5 @@
 import tensorflow as tf
-
+import tensorflow
 # tf.RegisterGradient('QuantizeGradient')
 from tensorflow_core.python import ops
 
@@ -44,5 +44,21 @@ class QuantizeLayer(tf.keras.layers.Layer):
 
 
 class Conv2dQuant(tf.keras.layers.Conv2D):
-    def __init__(self):
-        
+    def __init__(self, number_of_filters,
+                 filter_size,
+                 strides,
+                 dilation_rate=(1, 1),
+                 padding='same',
+                 kernel_initializer='he_normal'):
+        self.number_of_filter = number_of_filters
+        self.filter_size = filter_size
+        self.strides = strides
+        self.dilation_rate = dilation_rate
+        self.padding = padding
+        self.kernel_initializer = kernel_initializer
+        super(Conv2dQuant).__init__()
+
+    def call(self, inputs):
+        input_shape = K.shape(inputs)
+
+tensorflow.
