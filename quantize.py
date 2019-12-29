@@ -1,4 +1,8 @@
 import tensorflow as tf
+from tf.keras.layers import Input
+from tf.keras.layers import Conv2D
+from tf.keras.models import Model
+
 import tensorflow
 # tf.RegisterGradient('QuantizeGradient')
 from tensorflow_core.python import ops
@@ -61,4 +65,7 @@ class Conv2dQuant(tf.keras.layers.Conv2D):
     def call(self, inputs):
         input_shape = K.shape(inputs)
 
-tensorflow.
+
+
+input = Input(shape=(1,4))
+out = Conv2D()
